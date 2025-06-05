@@ -1,0 +1,4 @@
+litellm==1.60.5
+modal==0.73.19
+func-timeout==4.3.5
+tiktoken==0.8.0
