@@ -25,7 +25,7 @@ This is the repository for **Matter-of-fact**, a benchmark of approximately 8,00
 
 # 1. Paper
 
-The paper [Matter-of-Fact: A Benchmark for Verifying the Feasibility of Literature-Supported Claims in Materials Science](http://www.arxiv.org) is available on Arxiv. 
+The paper [Matter-of-Fact: A Benchmark for Verifying the Feasibility of Literature-Supported Claims in Materials Science](https://arxiv.org/abs/2506.04410) is available on Arxiv. 
 
 <div align="center">  
 <img src="images/paper-preview.png" style="width: 600px; border: 1px solid lightgray;">
@@ -176,7 +176,15 @@ The oracle paper baseline is essentially a retrieval-augmented-generation (RAG) 
 
 The citation for Matter-of-Fact is:
 ```
-TODO
+@misc{jansen2025matteroffactbenchmarkverifyingfeasibility,
+      title={Matter-of-Fact: A Benchmark for Verifying the Feasibility of Literature-Supported Claims in Materials Science}, 
+      author={Peter Jansen and Samiah Hassan and Ruoyao Wang},
+      year={2025},
+      eprint={2506.04410},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2506.04410}, 
+}
 ```
 
 
