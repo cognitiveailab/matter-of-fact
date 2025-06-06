@@ -14,10 +14,23 @@ This is the repository for **Matter-of-fact**, a benchmark of approximately 8,00
 
 - [1. Paper](#1-paper)
 - [2. Benchmark](#2-benchmark)
+  - [2.1 Train, Validation, and Test Sets](#21-train-validation-and-test-sets)
+  - [2.2 Feasibility Problem Format](#22-feasibility-problem-format)
+  - [2.3 Scoring](#23-scoring)
+  - [2.4 Feasibility and Temporal Filtering](#24-feasibility-and-temporal-filtering)
 - [3. Baseline Models](#3-baseline-models)
+  - [3.1 Threading](#31-threading)
+  - [3.2 Cost](#32-cost)
+  - [3.3 Semantic Scholar API](#33-semantic-scholar-api)
+  - [3.4 CodeScientist-based Execution](#34-codescientist-based-execution)
+  - [3.5 Oracle Paper Baseline](#35-oracle-paper-baseline)
 - [4. Citation](#4-citation)
 - [5. License](#5-license)
+  - [5.1 Matter-of-Fact Benchmark License](#51-matter-of-fact-benchmark-license)
+  - [5.2 Matter-of-Fact Code / Baseline Model License](#52-matter-of-fact-code--baseline-model-license)
 - [6. Contact](#6-contact)
+
+
 
 
 
@@ -37,6 +50,8 @@ The paper [Matter-of-Fact: A Benchmark for Verifying the Feasibility of Literatu
 
 # 2. Benchmark
 
+<span id='21-train-validation-and-test-sets'/>
+
 ## 2.1 Train, Validation, and Test Sets
 
 The train, validation, and test sets are available in: [/benchmark/](/benchmark/)
@@ -47,6 +62,7 @@ The train, validation, and test sets are available in: [/benchmark/](/benchmark/
 | valid | 2538 | 2023          | [matteroffact.validation.2023.2538.json](/benchmark/matteroffact.validation.2023.2538.json)                       |
 | test  | 4446 | 2024-2025     | [matteroffact.test.20242025.4446.json](/benchmark/matteroffact.test.20242025.4446.json)                           |
 
+<span id='22-feasibility-problem-format'/>
 
 ## 2.2 Feasibility Problem Format
 
@@ -103,6 +119,8 @@ The field descriptions are below:
 - `published_date`: The date that the earliest version of this paper appeared on Arxiv.
 - `exclude_date`: For the feasibility verification task, exclude any artifacts (e.g. papers, knowledge sources, etc.) whose knowledge comes after this date.
 
+<span id='23-scoring'/>
+
 ## 2.3 Scoring
 
 A few notes on scoring: 
@@ -110,6 +128,7 @@ A few notes on scoring:
 - There are an equal number of `true` and `false` claims, so chance performance is 50%.
 - A model's performance is simply its classification accuracy across the test set.  (For example, if Model X correctly predicts the labels for `3000` claims, and incorrectly predicts the labels for `1446` claims, then its accuracy will be `3000 / 4446 = 67.5%`).
 
+<span id='24-feasibility-and-temporal-filtering'/>
 
 ## 2.4. Feasibility and Temporal Filtering
 
@@ -118,6 +137,8 @@ Matter-of-Fact frames feasibility detection as a temporally-filtered claim verif
 We've designed the dataset with this temporal filtering in mind, and there are two possible ways to perform this filtering: 
 - **Easy:** All the claims in the test set are from papers posted in January 2024 or after.  You can simply exclude all knowledge from 2024 onward in your retrieval system.
 - **Claim-specific:** Each claim has a knowledge cutoff-date (`exclude_date`), so if you'd like your model to use all knowledge up to just before the source paper was published, that is possible too.
+
+<span id='241-wait-wont-models-be-trained-on-papers-authored-after-2024-will-this-contaminate-the-data'/>
 
 ### 2.4.1. Wait, won't models be trained on papers authored after 2024?  Will this contaminate the data? 
 
@@ -146,24 +167,34 @@ The paper includes code for a number of baseline models:
 
 The code for these baseline models is provided in: [/models/](/models/) .
 
+<span id='31-threading'/>
+
 ## 3.1. Threading
 
 All the baseline models are threaded, and send a (large) number of parallel requests to the model provider.  You should likely start with a very low number of threads (like 1), and scale up as appropriate.  The number of threads are generally controlled with the `NUM_WORKERS` parameter in the calls of the main function of each model. 
 
 You will likely wish to adjust the threading speeds and delays of the various API calls (OpenAI, Anthropic, Semantic Scholar, etc.) to meet your desired rate limits. 
 
+<span id='32-cost'/>
+
 ## 3.2. Cost
 
 Running these models can incur significant cost.  You may wish to make a subset of the data (e.g. 10 or 100 claim verification problems) to use for debugging/evaluation purposes, before running the full models. 
+
+<span id='33-semantic-scholar-api'/>
 
 ## 3.3. Semantic Scholar API
 
 The Semantic Scholar model uses the Semantic Scholar snippet search [(docs)](https://api.semanticscholar.org/api-docs/#tag/Snippet-Text), which requires an API key [(request form)](https://www.semanticscholar.org/product/api#api-key).  
 
+<span id='34-codescientist-based-execution'/>
+
 ## 3.4. CodeScientist-based execution
 
 The code model uses a limited version of CodeScientist, and requires much of the same setup (e.g. Modal.com).  Please see the CodeScientist repository for details:
 [https://github.com/allenai/codescientist](https://github.com/allenai/codescientist)
+
+<span id='35-oracle-paper-baseline'/>
 
 ## 3.5. Oracle Paper Baseline
 
@@ -192,11 +223,15 @@ The citation for Matter-of-Fact is:
 
 # 5. License
 
+<span id='51-matter-of-fact-benchmark-license'/>
+
 ## 5.1. Matter-of-Fact Benchmark License
 
 The Matter-of-Fact benchmark claims are built from Arxiv papers that are licensed under a [Creative Commons By-Attribution 4.0](http://creativecommons.org/licenses/by/4.0/) License, where attribution is provided by each claim including the Arxiv ID of the paper that it was derived from.
 
 The Matter-of-Fact data/benchmark are also released under the same CC-BY-4.0 license. 
+
+<span id='52-matter-of-fact-code--baseline-model-license'/>
 
 ## 5.2. Matter-of-Fact Code / Baseline Model License
 
