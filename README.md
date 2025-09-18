@@ -46,7 +46,10 @@ The paper [Matter-of-Fact: A Benchmark for Verifying the Feasibility of Literatu
 </div>
 
 
-# 1.1 Generating your own claims from scientific papers using this method 
+
+<span id='11-generating-new-claims'/>
+
+## 1.1 Generating your own claims from scientific papers using this method 
 
 If you would like to use the same methodology to generate claims in your own domain of interest, our claim extraction system is here: 
 [ClaimExtractionPrompt.py](/claim_extraction/ClaimExtractionPrompt.py) 
