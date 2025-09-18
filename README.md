@@ -1,4 +1,4 @@
-# Matter-of-Fact: A Benchmark for Verifying the Feasibility of Literature-Supported Claims in Materials Science
+## Matter-of-Fact: A Benchmark for Verifying the Feasibility of Literature-Supported Claims in Materials Science (EMNLP 2025)
 
 <div align="center">  
 <img src="images/example-claims.png" style="width: 800px; border: 1px solid lightgray;">
@@ -39,7 +39,7 @@ This is the repository for **Matter-of-fact**, a benchmark of approximately 8,00
 
 # 1. Paper
 
-The paper [Matter-of-Fact: A Benchmark for Verifying the Feasibility of Literature-Supported Claims in Materials Science](https://arxiv.org/abs/2506.04410) is available on Arxiv. 
+The paper [Matter-of-Fact: A Benchmark for Verifying the Feasibility of Literature-Supported Claims in Materials Science](https://arxiv.org/abs/2506.04410) is accepted to EMNLP 2025 and currently available on Arxiv. 
 
 <div align="center">  
 <img src="images/paper-preview.png" style="width: 600px; border: 1px solid lightgray;">
