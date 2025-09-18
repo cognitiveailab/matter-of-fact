@@ -13,6 +13,7 @@ This is the repository for **Matter-of-fact**, a benchmark of approximately 8,00
 # Table of Contents
 
 - [1. Paper](#1-paper)
+- [1.1 Generating your own claims from scientific papers using this method](#11-generating-new-claims)
 - [2. Benchmark](#2-benchmark)
   - [2.1 Train, Validation, and Test Sets](#21-train-validation-and-test-sets)
   - [2.2 Feasibility Problem Format](#22-feasibility-problem-format)
@@ -44,6 +45,11 @@ The paper [Matter-of-Fact: A Benchmark for Verifying the Feasibility of Literatu
 <img src="images/paper-preview.png" style="width: 600px; border: 1px solid lightgray;">
 </div>
 
+
+# 1.1 Generating your own claims from scientific papers using this method 
+
+If you would like to use the same methodology to generate claims in your own domain of interest, our claim extraction system is here: 
+[ClaimExtractionPrompt.py](/claim_extraction/ClaimExtractionPrompt.py) 
 
 
 <span id='2-benchmark'/>
